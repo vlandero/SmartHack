@@ -21,6 +21,7 @@ function Dashboard({pass,token}) {
     const [passwordEntries,setPasswordEntries] = useState([])
     const [keyEntries, setKeyEntries] = useState([])
     const [changed,setChanged] = useState(false)
+    const [cryptoSalt, setCryptoSalt] = useState('')
     useEffect(()=>{
         const getEntries = async ()=>{
             if(!sessionStorage.getItem('token'))
@@ -35,7 +36,11 @@ function Dashboard({pass,token}) {
                 window.location.href = '/'
             } else {
                 setPasswordEntries(result.data.passwordEntries)
-                setKeyEntries(result.data.keyEntries)
+                setKeyEntries(result.data.keyEntries.map((item)=>{
+                    item.password=decrypt(item.password,sessionStorage.getItem("crpt"),cryptoSalt)
+                    return item
+                }))
+                setCryptoSalt(result.data.cryptoSalt)
             }
         }
         getEntries()
@@ -62,7 +67,7 @@ function Dashboard({pass,token}) {
             body:JSON.stringify({
                 type:'password',
                 username:newPassword['username'],
-                password:newPassword['password']
+                password:encrypt(newPassword['password'],sessionStorage.getItem("crpt"),cryptoSalt)
             })
         }).then((res)=>res.json())
         if(result.status === "error") {

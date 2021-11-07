@@ -1,9 +1,9 @@
 import forge from 'node-forge'
 
-export const salt = '£2ÌF×¶ÓÚØjÍç§UkA:4¾âíÑ¤ØÀßè.dhî▼§ÄVCõÚ♣Ã¡ÝK0fâ±▬';
+// export const salt = '£2ÌF×¶ÓÚØjÍç§UkA:4¾âíÑ¤ØÀßè.dhî▼§ÄVCõÚ♣Ã¡ÝK0fâ±▬';
 export const iv = 'kå·‼‼Î"ºè?]»Ãë-^¢Ts+û4÷bS6@Ðt½ÇïÀ▼&I¦W _½↨♀ÀB¸ äjh[H_ý^Ì¶→';
 
-export const encrypt = (text: string, pass: string) => {
+export const encrypt = (text: string, pass: string,salt:string) => {
     let key = forge.pkcs5.pbkdf2(pass, salt, 1000, 16);
     let cipher = forge.cipher.createCipher('AES-CBC', key);
     cipher.start({iv: iv});
@@ -12,7 +12,7 @@ export const encrypt = (text: string, pass: string) => {
     let encrypted = cipher.output;
     return encrypted.getBytes();
 }
-export const decrypt = (text: string, pass: string) => {
+export const decrypt = (text: string, pass: string,salt:string) => {
     let key = forge.pkcs5.pbkdf2(pass, salt, 1000, 16);
     let decipher = forge.cipher.createDecipher('AES-CBC', key);
     decipher.start({iv: iv});
