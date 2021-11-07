@@ -119,7 +119,7 @@ app.post('/entries/', async (req: express.Request, res: express.Response) => {
     if (!user)
         return res.json(Error('User not logged in'))
     let dbKey = "";
-    if (req.body.type === "passwords") {
+    if (req.body.type === "password") {
         dbKey = "passwordEntries";
     } else {
         dbKey = "keyEntries";

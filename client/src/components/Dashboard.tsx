@@ -35,12 +35,16 @@ function Dashboard({pass,token}) {
             if(result.status === "error") {
                 window.location.href = '/'
             } else {
-                setPasswordEntries(result.data.passwordEntries)
-                setKeyEntries(result.data.keyEntries.map((item)=>{
-                    item.password=decrypt(item.password,sessionStorage.getItem("crpt"),cryptoSalt)
+                setCryptoSalt(result.data.cryptoSalt)
+                setPasswordEntries(result.data.passwordEntries.map((item)=>{
+                    item.password=decrypt(item.password,sessionStorage.getItem("crpt"),result.data.cryptoSalt)
                     return item
                 }))
-                setCryptoSalt(result.data.cryptoSalt)
+                setKeyEntries(result.data.keyEntries.map((item)=>{
+                    item.password=decrypt(item.password,sessionStorage.getItem("crpt"),result.data.cryptoSalt)
+                    return item
+                }))
+                
             }
         }
         getEntries()
