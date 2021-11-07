@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap");
+
+/******** General styles  *********/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: "Epilogue", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/******** Navbar style  *********/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+  padding: 2rem 6rem;
+  background: rgba(105, 115, 226, 0.2);
+}
+
+.navbar h1 {
+  font-size: 4rem;
+}
+
+.a-tag {
+  text-decoration: none;
+}
+
+.a-tag:hover,
+.a-tag:focus,
+.a-tag:visited,
+a:visited {
+  color: inherit;
+}
+
+.links {
+  margin-left: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links p {
+  margin-right: 3.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.demo-container {
+  width: 100%;
+  height: 100%;
+  background-image: url(./components/dashComponents/unknown.png);
+  background-size: cover;
+}
+.navbar-btn {
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 5rem;
+  background: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: box-shadow 0.25s;
+}
+
+.navbar-btn:hover {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.25);
+}
+
+/******** Footer style  *********/
+.footer {
+  padding: 2rem;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #6973e2;
+  color: white;
+  text-align: center;
+}
+
+/******** Home style  *********/
+.home {
+  padding: 5rem 10rem;
+  display: flex;
+}
+
+.home-left {
+  margin-right: 4rem;
+  width: 40%;
+}
+
+.home-left h1 {
+  margin-bottom: 3rem;
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home-left p {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.home-signup-btn {
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 5rem;
+  background: #9c69e2;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: box-shadow 0.25s;
+}
+
+.home-signup-btn:hover {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.25);
+}
+
+.home-right {
+  width: 55%;
+  border-radius: 2rem;
+  background-color: #f0faf9;
+}
+
+/******** Sign in&up style  *********/
+.signin-container,
+.signup-container {
+  margin: 5rem auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+.signin-container h1,
+.signup-container h1 {
+  font-size: 6rem;
+  margin-bottom: 3rem;
+}
+
+.signin-container p,
+.signup-container p {
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+}
+
+.input-username,
+.input-password {
+  width: 300px;
+  margin-bottom: 4rem;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+}
+
+.signin-btn,
+.signup-btn {
+  display: inline-block;
+  width: 300px;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #bce0f0;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.signup-btn {
+  background-color: #0e41ce;
+  color: #fff;
+}
+
+/******** Dashboard style  *********/
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5rem auto;
+  width: 80%;
+  height: 65vh;
+  min-width: 250px;
+}
+
+.dashboard-buttons {
+  display: flex;
+}
+
+.new-password-btn,
+.new-key-btn {
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  row-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 2rem;
+  background-color: #fafafa;
+  color: #9c69e2;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.plus-icon {
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+.passwords-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 5rem;
+  width: 100%;
+  flex-grow: 1;
+  background-color: #e3e6f1;
+  border-radius: 2rem;
+}
+
+/******** Stored passwords style  *********/
+.stored-password {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.stored-password p {
+  font-size: 2rem;
+}
+
+.stored-password-input {
+  margin-left: 2rem;
+  padding: 0.75rem;
+}
+
+.stored-password button {
+  margin-left: 1rem;
+  border: none;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.showhide-btn {
+  background-color: rgb(76, 175, 80, 0.7); /* Green */
+}
+
+.delete-btn {
+  background-color: rgba(244, 67, 54, 0.7);
+}
+
+.stored-password-input,
+.stored-password button {
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+}
+
+.passwords,
+.keys {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 48%;
+}
+
+.passwords h2,
+.keys h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+/******** Dashboard popup style  *********/
+.popup-box {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 3rem;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.close-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  content: "x";
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #9c69e2;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+}
+
+.popup-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-form label {
+  font-size: 2rem;
+}
+
+.popup-form input {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid #000;
+  border-radius: 1rem;
+}
+
+.popup-form .checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.popup-form input[type="checkbox"] {
+  width: fit-content;
+  margin: 0;
+  margin-left: 1rem;
+  width: 30px;
+  height: 30px;
+}
+
+.popup-btn {
+  width: fit-content;
+  display: inline-block;
+  margin: 1rem auto 0;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #bce0f0;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.text-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.generate-password,
+.generate-key {
+  display: inline-block;
+  margin: 1.5rem;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #9563db;
+  color: #fafafa;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/******** Dashboard KEYS popup style  *********/
+.key-input {
+  margin-top: 2rem;
+}
+
+select {
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  font-size: 1.5rem;
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+option {
+  font-size: 1.5rem;
+}
+
+.popup-keys-btn {
+  margin-top: 2rem;
+}
+.key-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+textarea {
+  margin-left: 2rem;
+  padding: 0.5rem 1rem;
+  width: 300px;
+  height: 100px;
+}
+
+select {
+  margin-bottom: 2rem;
+}
