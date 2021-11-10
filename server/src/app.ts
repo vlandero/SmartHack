@@ -4,9 +4,6 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import {Error, Ok} from './statuses'
 import {JWTsecret, MONGO} from './secrets'
-import {generatePassword} from "./password_generator"
-import {genRSA} from './generate-keys/keys'
-import {encrypt,decrypt} from './crypt'
 import forge from 'node-forge'
 
 mongoose.connect(MONGO)
@@ -100,12 +97,6 @@ app.post('/user/me', async (req, res) => {
     const user = await verifyToken(req, res)
     if (!user)
         return res.json(Error('User not logged in'))
-    // console.log({
-    //     username: user.username,
-    //     passwordEntries: user.passwordEntries,
-    //     keyEntries: user.keyEntries,
-    //     cryptoSalt: user.cryptoSalt,
-    // })
     return res.json(Ok({
         username: user.username,
         passwordEntries: user.passwordEntries,
@@ -169,23 +160,5 @@ app.delete('/entries/:type/:id/', async (req: express.Request, res) => {
     }
 })
 
-// interface GeneratePasswordReqQuery {
-//     length: number,
-//     includeSymbols: boolean,
-// }
-
-// app.get('/generate-password', async (req: express.Request<{}, {}, {}, GeneratePasswordReqQuery, {}>, res) => {
-//     const user = await verifyToken(req, res)
-//     if (!user) {
-//         return res.json(Error('User not logged in'))
-//     }
-//     return res.json(generatePassword(req.query))
-// })
-
-// console.log(genRSA())
-// // console.log(genAES(16,'vlad'))
-// let x = encrypt('curenta','parola') 
-// console.log(Buffer.from(x.toHex(),'hex'),x)
-// console.log(decrypt(x,'parola'))
 
 app.listen(80, () => console.log("Server running"))
