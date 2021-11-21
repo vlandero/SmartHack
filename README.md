@@ -8,3 +8,4 @@ Passwords are encrypted and decrypted using AES and a salt that is randomly gene
 
 The app can also generate passwords based on user-configurable parameters and symmetric/asymmetric keys
 
+App created by [Vlad Rosu](https://github.com/vlandero), [Andrei Ancuta](https://github.com/tezkerek) and [Andrei Hodoroaga](https://github.com/andreihodoroaga)
